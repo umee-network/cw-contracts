@@ -1,0 +1,30 @@
+[workspace]
+members = ["burn-auction"]
+
+# exclude = ["contracts/umee"]
+
+[workspace.package]
+edition = "2021"
+license = "Mozilla Public License Version 2.0"
+repository = "https://github.com/umee-network/cw-contracts"
+authors = [
+    "Umee Team (https://ux.xyz/)",
+]
+
+[profile.release]
+codegen-units = 1
+opt-level = 3
+# link time optimization
+lto = true
+panic = "abort"
+overflow-checks = true
+debug = false
+debug-assertions = false
+rpath = false
+
+[workspace.dependencies]
+cosmwasm-std = { version = "1.5.2", features = ["staking"] }
+cosmwasm-schema = "1.5.2"
+sylvia = "0.9.3"
+schemars = "0.8"
+serde = "1.0.195"
